@@ -4,6 +4,7 @@ import FormEvents from './Experience/FormEvents'
 
 const experience = new Experience(document.querySelector("canvas.webgl"))
 const formevents = new FormEvents()
+CI = false
 // import * as THREE from 'three'
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import * as dat from 'lil-gui'
