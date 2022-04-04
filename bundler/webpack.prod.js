@@ -6,6 +6,9 @@ module.exports = merge(
     commonConfiguration,
     {
         mode: 'production',
+        output: {
+            publicPath: 'auto',
+          },
         plugins:
         [
             new CleanWebpackPlugin()
