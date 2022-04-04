@@ -12,6 +12,8 @@ export default class FormEvents
         this.filterOption = document.querySelector(".filter-todo")
         this.lego = this.experience.lego
 
+        console.log("fasfas")
+
         this.setupAddtoDo()
         this.deleteCheck()
         this.filterTodo()
