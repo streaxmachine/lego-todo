@@ -36,6 +36,8 @@ export default class Experience
         this.renderer = new Renderer()
         this.world = new World()
         this.legoForm = new LegoForm()
+
+        console.log("sfasfsa")
         
         this.sizes.on("resize", ()=>
         {
