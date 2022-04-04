@@ -1,5 +1,8 @@
 import * as THREE from "three"
 import Experience from "./Experience"
+import LegoForm  from "./LegoForm"
+import Lego from "./World/Lego"
+import gsap from "gsap"
 
 export default class FormEvents
 {
@@ -10,13 +13,19 @@ export default class FormEvents
         this.todoInput = document.querySelector(".todo-input")
         this.todoButton = document.querySelector(".todo-button")
         this.filterOption = document.querySelector(".filter-todo")
-        this.lego = this.experience.lego
 
-        console.log("fasfas")
-
-        this.setupAddtoDo()
         this.deleteCheck()
+        this.setupAddtoDo()
         this.filterTodo()
+
+        // setTimeout(() => this.setupAddtoDo(), 1000);
+
+        this.legoForm = new LegoForm()
+        this.resources = this.experience.resources
+        this.resources.on("ready", ()=>
+        {
+            this.lego = new Lego()
+        })
     }
 
     setupAddtoDo()
@@ -26,8 +35,6 @@ export default class FormEvents
             event.preventDefault()
             //ToDo DIV
 
-                console.log(this.lego)
-
             const todoDiv = document.createElement("div")
             todoDiv.classList.add("todo")
             //Li
@@ -35,10 +42,9 @@ export default class FormEvents
             const newTodo = document.createElement("li")
             newTodo.innerText = this.todoInput.value
             newTodo.classList.add("todo-item")
-            todoDiv.appendChild(newTodo)
-
+            todoDiv.appendChild(newTodo) 
             //ADDtodo
-
+            this.setSaberColorAdd()
             //Check Mark Button
 
             const completedButton = document.createElement("button")
@@ -67,16 +73,16 @@ export default class FormEvents
         this.todoList.addEventListener("click" , (e) =>
         {
             const item = e.target
-            console.log(e.target.classList)
             if(item.classList[0] === "trash-btn")
-        {
-            const todo = item.parentElement
-            //Animation
-            todo.classList.add("fall")
-            todo.addEventListener("transitionend" , function(){
+            {
+                const todo = item.parentElement
+                //Animation
+                todo.classList.add("fall")
+                todo.addEventListener("transitionend" ,() =>{
                 todo.remove()
-            })
-        }
+                })
+                this.setSaberColordelete()
+            }
         
         if(item.classList[0] === "complete-btn"){
             const todo = item.parentElement
@@ -116,5 +122,24 @@ export default class FormEvents
                 }
             })   
         })
+    }
+
+    setSaberColorAdd()
+    {
+        if(this.lego)
+        {
+            gsap.to(this.lego.LightSaberMat , {emissiveIntensity: 3 , duration: 1})
+            gsap.to(this.lego.LightSaberMat , {delay: 1, emissiveIntensity: 1.2 ,duration: 1})
+        }
+    }
+
+    setSaberColordelete()
+    {
+        if(this.lego)
+        {
+            gsap.to(this.lego.LightSaberMat , { delay: 0.5 , emissiveIntensity: 0.6 , duration: 1})
+            gsap.to(this.lego.LightSaberMat , { delay: 1 , emissiveIntensity: 0.1 , duration: 1.3})
+
+        }
     }
 }

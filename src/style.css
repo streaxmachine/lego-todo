@@ -13,6 +13,13 @@ body
     min-height: 100vh;
 }
 
+@font-face {
+    font-family: myFirstFont;
+    src: url("NeueMachina-Medium.ttf") format("truetype"); ;
+    font-style: normal; 
+    font-weight: normal; 
+  }
+
 .webgl
 {
     position: fixed;
@@ -24,6 +31,7 @@ body
 
 header{
     font-size: 1.5rem;
+    font-family: "myFirstFont";
 }
 
 header,form{
@@ -38,6 +46,18 @@ form input , form button{
     font-size: 2rem;
     border: none;
     background: white;
+    outline: none;
+}
+
+
+
+.todo-input {
+    font-family: "myFirstFont";
+    font-size: 28px;
+}
+
+.todo{
+    width: 315px;
 }
 
 form button{
@@ -124,6 +144,7 @@ select{
 }
 
 select{
+    font-family: myFirstFont;
     color: #ff6f47;
     width: 10rem;
     cursor: pointer;

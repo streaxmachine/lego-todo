@@ -2,6 +2,7 @@ import * as THREE from "three"
 import Experience from "./Experience"
 import gsap from "gsap"
 import Lego from "./World/Lego"
+import FormEvents from "./FormEvents"
 
 
 export default class LegoForm
@@ -16,21 +17,5 @@ export default class LegoForm
             this.lego = new Lego()
         })
 
-        this.setSaberColor()
-
-        window.addEventListener("click" , ()=>
-        {
-            this.setSaberColor()
-        })
-        
-    }
-
-    setSaberColor()
-    {
-        if(this.lego)
-        {
-            // this.lego.LightSaberMat.color = new THREE.Color("green")
-            gsap.to(this.lego.LightSaberMat , {emissiveIntensity: 2 , duration: 5})
-        }
     }
 }

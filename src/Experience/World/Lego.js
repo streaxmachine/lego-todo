@@ -45,6 +45,7 @@ export default class Lego
         emissive: new THREE.Color(1 , 0 , 0), 
         emissiveIntensity: 0.2,
         side: THREE.DoubleSide})
+        
 
     this.capeMat = new THREE.MeshStandardMaterial({ map: this.resourcesCapeTexture , 
         bumpMap: this.resourcesCapeTexture , 
@@ -57,6 +58,9 @@ export default class Lego
     setLegoModel()
     {
         this.legoModel = this.resourcesLego.scene
+        this.legoModel.position.x = 0.6
+        this.legoModel.position.z = -0.3
+        this.legoModel.rotation.y = -.2
         const capeMesh = this.legoModel.getObjectByName("Cape")
         const LightSaber = this.legoModel.getObjectByName("LightSaber")
         this.head = this.legoModel.getObjectByName("UniqueID_25")

@@ -23,7 +23,7 @@ export default class Renderer
     {
         this.instance = new THREE.WebGL1Renderer({
             canvas: this.canvas,
-            antialias: true
+            antialias: false
         })
 
         this.instance.physicallyCorrectLights = true
@@ -82,5 +82,6 @@ export default class Renderer
     update()
     {
         this.effectComposer.render()
+        // this.instance.render(this.scene , this.camera.instance)
     }
 }
