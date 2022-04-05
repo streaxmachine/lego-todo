@@ -34,6 +34,8 @@ body
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 header{
@@ -66,10 +68,6 @@ form input , form button{
     /* margin-left: 30px; */
 }
 
-.todo{
-    width: 300px;
-}
-
 .todo-button{
     /* color: #d88771; */
     background: #0e1531;
@@ -88,11 +86,15 @@ form button:hover{
     
 }
 
+.button_form{
+    display: flex;
+}
+
 .todo-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 215px;
+    margin-right: 180px;
 }
 
 .todo-list{
@@ -205,3 +207,23 @@ select{
 .select:hover::after{
     background-color: white;
 } */
+
+@media (max-width: 530px){
+
+    form{
+        flex-direction: column;
+    }
+
+    .todo-container {
+        margin-right: 0px;
+    }
+
+    .todo-button {
+         margin-right: 0px;
+    }
+
+    .select{
+        margin-top: 10px;
+    }
+
+}
