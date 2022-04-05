@@ -58,9 +58,9 @@ export default class Lego
     setLegoModel()
     {
         this.legoModel = this.resourcesLego.scene
-        this.legoModel.position.x = 0.6
+        this.legoModel.position.x = 0.3
         this.legoModel.position.z = -0.3
-        this.legoModel.rotation.y = -.2
+        this.legoModel.rotation.y = -0.2
         const capeMesh = this.legoModel.getObjectByName("Cape")
         const LightSaber = this.legoModel.getObjectByName("LightSaber")
         this.head = this.legoModel.getObjectByName("UniqueID_25")
