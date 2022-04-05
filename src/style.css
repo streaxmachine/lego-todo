@@ -226,4 +226,8 @@ select{
         margin-top: 10px;
     }
 
+    .todo{
+        opacity: 0.8;
+    }
+
 }

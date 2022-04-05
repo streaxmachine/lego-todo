@@ -66,6 +66,13 @@ export default class Lego
         this.head = this.legoModel.getObjectByName("UniqueID_25")
         capeMesh.material = this.capeMat
         LightSaber.material = this.LightSaberMat
+        
+        if(this.experience.sizes.width < 500)
+        {
+            this.legoModel.position.x = -0.7
+            this.legoModel.rotation.y = 0.1
+        }
+
         this.scene.add(this.legoModel)
     }
 

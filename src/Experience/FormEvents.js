@@ -18,8 +18,6 @@ export default class FormEvents
         this.setupAddtoDo()
         this.filterTodo()
 
-        // setTimeout(() => this.setupAddtoDo(), 1000);
-
         this.legoForm = new LegoForm()
         this.resources = this.experience.resources
         this.resources.on("ready", ()=>
@@ -35,7 +33,7 @@ export default class FormEvents
             event.preventDefault()
             //ToDo DIV
 
-            const todoDiv = document.createElement("div")
+            const todoDiv = document.createElement("li")
             todoDiv.classList.add("todo")
             //Li
 
