@@ -14,7 +14,7 @@ export default class FormEvents
         this.todoButton = document.querySelector(".todo-button")
         this.filterOption = document.querySelector(".filter-todo")
 
-        this.deleteCheck()
+        this.deleteTodo()
         this.setupAddtoDo()
         this.filterTodo()
 
@@ -66,7 +66,7 @@ export default class FormEvents
         })
     }
 
-    deleteCheck()
+    deleteTodo()
     {
         this.todoList.addEventListener("click" , (e) =>
         {
@@ -75,16 +75,17 @@ export default class FormEvents
             {
                 const todo = item.parentElement
                 //Animation
-                todo.classList.add("fall")
+                todo.classList.add("deleted")
                 todo.addEventListener("transitionend" ,() =>{
                 todo.remove()
                 })
                 this.setSaberColordelete()
             }
         
-        if(item.classList[0] === "complete-btn"){
-            const todo = item.parentElement
-            todo.classList.toggle("completed")
+            if(item.classList[0] === "complete-btn"){
+                const todo = item.parentElement
+                todo.classList.toggle("completed")
+                this.setSaberColordeleteComplete()
         }
         })
     }
@@ -137,6 +138,16 @@ export default class FormEvents
         {
             gsap.to(this.lego.LightSaberMat , { delay: 0.5 , emissiveIntensity: 0.6 , duration: 1})
             gsap.to(this.lego.LightSaberMat , { delay: 1 , emissiveIntensity: 0.1 , duration: 1.3})
+
+        }
+    }
+
+    setSaberColordeleteComplete()
+    {
+        if(this.lego)
+        {
+            gsap.to(this.lego.LightSaberMat , { delay: 0.5 , emissiveIntensity: 6, duration: 1})
+            gsap.to(this.lego.LightSaberMat , { delay: 1.5 , emissiveIntensity: 2 , duration: 1})
 
         }
     }
