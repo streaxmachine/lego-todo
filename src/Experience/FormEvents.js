@@ -9,6 +9,7 @@ export default class FormEvents
     constructor()
     {   
         this.experience = new Experience()
+
         this.todoList = document.querySelector(".todo-list")
         this.todoInput = document.querySelector(".todo-input")
         this.todoButton = document.querySelector(".todo-button")
@@ -31,35 +32,28 @@ export default class FormEvents
         this.todoButton.addEventListener("click" , (event)=>
         {
             event.preventDefault()
-            //ToDo DIV
 
             const todoDiv = document.createElement("li")
             todoDiv.classList.add("todo")
-            //Li
 
             const newTodo = document.createElement("li")
             newTodo.innerText = this.todoInput.value
             newTodo.classList.add("todo-item")
             todoDiv.appendChild(newTodo) 
-            //ADDtodo
+
             this.setSaberColorAdd()
-            //Check Mark Button
 
             const completedButton = document.createElement("button")
-            completedButton.innerHTML = '<i class = "fas fa-check"><i>'
+            completedButton.innerHTML = '<i class="fa-regular fa-circle-check"></i>'
             completedButton.classList.add("complete-btn")
             todoDiv.appendChild(completedButton)
 
-            //Check Trash Button
-
             const trashButton = document.createElement("button")
-            trashButton.innerHTML = '<i class = "fas fa-trash"><i>'
+            trashButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
             trashButton.classList.add("trash-btn")
             todoDiv.appendChild(trashButton)
-            //APPENT TO LIST
 
             this.todoList.appendChild(todoDiv)
-            //Clear Todo input VALUE
 
             this.todoInput.value = ""
                
@@ -70,11 +64,13 @@ export default class FormEvents
     {
         this.todoList.addEventListener("click" , (e) =>
         {
+            // console.log(e.target)
             const item = e.target
             if(item.classList[0] === "trash-btn")
-            {
+            {   
+                console.log(item.parentElement)
                 const todo = item.parentElement
-                //Animation
+                
                 todo.classList.add("deleted")
                 todo.addEventListener("transitionend" ,() =>{
                 todo.remove()
@@ -136,8 +132,8 @@ export default class FormEvents
     {
         if(this.lego)
         {
-            gsap.to(this.lego.LightSaberMat , { delay: 0.5 , emissiveIntensity: 0.6 , duration: 1})
-            gsap.to(this.lego.LightSaberMat , { delay: 1 , emissiveIntensity: 0.1 , duration: 1.3})
+            gsap.to(this.lego.LightSaberMat , {  emissiveIntensity: 0.6 , duration: 1})
+            gsap.to(this.lego.LightSaberMat , {delay: 1,  emissiveIntensity: 0.1 , duration: 1.3})
 
         }
     }
@@ -146,8 +142,8 @@ export default class FormEvents
     {
         if(this.lego)
         {
-            gsap.to(this.lego.LightSaberMat , { delay: 0.5 , emissiveIntensity: 6, duration: 1})
-            gsap.to(this.lego.LightSaberMat , { delay: 1.5 , emissiveIntensity: 2 , duration: 1})
+            gsap.to(this.lego.LightSaberMat , {  emissiveIntensity: 6, duration: 1})
+            gsap.to(this.lego.LightSaberMat , { delay: 1,  emissiveIntensity: 2 , duration: 1})
 
         }
     }

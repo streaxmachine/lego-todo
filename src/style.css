@@ -9,7 +9,6 @@ body
 {
     overflow: hidden;
     color: white;
-    font-family: "Poppins" , sans-serif;
     min-height: 100vh;
 }
 
@@ -81,7 +80,7 @@ header, form{
     align-items: center;
 }
 
-form input , form button{
+.todo-input , .todo-button{
     padding: 5px;
     border: none;
     background: #1a1f25;
@@ -111,7 +110,7 @@ form input , form button{
     margin-right: 20px;
 }
 
-form button:hover{
+.todo-button:hover{
     /* background: #d88771; */
     color: orange;
     
@@ -135,7 +134,7 @@ form button:hover{
 }
 
 .todo{
-    margin: 0.5rem;
+    margin: 8px;
     background: #1a1f25;
     color: black;
     font-size: 20px;
@@ -181,7 +180,7 @@ form button:hover{
 }
 
 .todo-item{
-    padding: 0rem 0.5rem;
+    padding: 0px 8px;
 }
 
 .fa-trash,
@@ -195,16 +194,7 @@ form button:hover{
 }
 
 .deleted{
-    /* transform:  translateY(8rem) rotateZ(20deg); */
     opacity: 0;
-}
-
-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
 }
 
 .select{
@@ -221,23 +211,13 @@ select{
     padding: 5px;
     border: 2px solid #22272d;
     border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
 }
 
-/* .select::after {
-    content: "\25BC";
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1rem;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    border: 2px solid rgb(8, 146, 170);
-    border-radius: 10px;
-}
-
-.select:hover::after{
-    background-color: white;
-} */
 
 @media (max-width: 530px){
 
