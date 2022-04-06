@@ -44,7 +44,7 @@ export default class FormEvents
             this.setSaberColorAdd()
 
             const completedButton = document.createElement("button")
-            completedButton.innerHTML = '<i class="fa-regular fa-circle-check"></i>'
+            completedButton.innerHTML = '<i class="fa-solid fa-check"></i></i>'
             completedButton.classList.add("complete-btn")
             todoDiv.appendChild(completedButton)
 
@@ -70,7 +70,7 @@ export default class FormEvents
             {   
                 console.log(item.parentElement)
                 const todo = item.parentElement
-                
+
                 todo.classList.add("deleted")
                 todo.addEventListener("transitionend" ,() =>{
                 todo.remove()
