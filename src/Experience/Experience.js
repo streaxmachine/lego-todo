@@ -7,6 +7,7 @@ import World from "./World/World"
 import Resources from "./Utils/Resources"
 import sources from "./sources"
 import LegoForm from "./LegoForm"
+import FormEvents from "./FormEvents"
 
 let instance = null
 
