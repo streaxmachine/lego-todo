@@ -14,10 +14,12 @@ export default class FormEvents
         this.todoInput = document.querySelector(".todo-input")
         this.todoButton = document.querySelector(".todo-button")
         this.filterOption = document.querySelector(".filter-todo")
+        this.deleteButton = document.querySelector(".delete-completed")
 
         this.deleteTodo()
         this.setupAddtoDo()
         this.filterTodo()
+        this.deleteCompletedTodos()
 
         this.legoForm = new LegoForm()
         this.resources = this.experience.resources
@@ -32,31 +34,54 @@ export default class FormEvents
         this.todoButton.addEventListener("click" , (event)=>
         {
             event.preventDefault()
+            if(this.todoInput.value != "")
+            {   
+                console.log(this.todoInput.value)
+                const todoDiv = document.createElement("li")
+                todoDiv.classList.add("todo")
 
-            const todoDiv = document.createElement("li")
-            todoDiv.classList.add("todo")
+                const newTodo = document.createElement("textarea")
+                newTodo.innerText = this.todoInput.value
+                newTodo.classList.add("todo-item")
+                todoDiv.appendChild(newTodo) 
 
-            const newTodo = document.createElement("li")
-            newTodo.innerText = this.todoInput.value
-            newTodo.classList.add("todo-item")
-            todoDiv.appendChild(newTodo) 
+                this.setSaberColorAdd()
+                
+                const completedButton = document.createElement("button")
+                completedButton.innerHTML = '<i class="fa-solid fa-check"></i></i>'
+                completedButton.classList.add("complete-btn")
+                todoDiv.appendChild(completedButton)
 
-            this.setSaberColorAdd()
+                const trashButton = document.createElement("button")
+                trashButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
+                trashButton.classList.add("trash-btn")
+                todoDiv.appendChild(trashButton)
 
-            const completedButton = document.createElement("button")
-            completedButton.innerHTML = '<i class="fa-solid fa-check"></i></i>'
-            completedButton.classList.add("complete-btn")
-            todoDiv.appendChild(completedButton)
+                this.todoList.appendChild(todoDiv)
 
-            const trashButton = document.createElement("button")
-            trashButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
-            trashButton.classList.add("trash-btn")
-            todoDiv.appendChild(trashButton)
+                this.todoInput.value = ""                
+            }     
+        })
+    }
 
-            this.todoList.appendChild(todoDiv)
-
-            this.todoInput.value = ""
-               
+    deleteCompletedTodos()
+    {
+        this.deleteButton.addEventListener("click" , (e)=>
+        {   
+            console.log("0")
+            const todos = this.todoList.childNodes;
+            todos.forEach( function(todo) { 
+                if(todo.nodeName === "LI"){
+                    console.log("1")                          
+                            if (todo.classList.contains("completed")) 
+                            {   
+                                todo.classList.add("deleted")
+                                todo.addEventListener("transitionend" ,() =>{
+                                    todo.remove()
+                                    })
+                            }
+                }
+            })
         })
     }
 
@@ -88,29 +113,29 @@ export default class FormEvents
 
     filterTodo()
     {
-        this.filterOption.addEventListener("click" , (e)=>
+        this.filterOption.addEventListener("change" , (e)=>
         {
             const todos = this.todoList.childNodes;
-            todos.forEach( (todo) => { 
-                const todoStyle = todo.style;  
-                if(todoStyle != undefined && todoStyle != null){
+            todos.forEach( function(todo) { 
+                if(todo.nodeName === "LI"){
                     switch (e.target.value) {
                         case "all":
-                            todoStyle.display = "flex";
+                            todo.style.display = "flex";
                             break;
+                            
                         case "completed":
-                            if (todo.classList.contains('completed')) {
-                                todoStyle.display = 'flex';
+                            if (todo.classList.contains("completed")) {
+                                todo.style.display = 'flex';
                             } else {
-                                todoStyle.display = "none";
+                                todo.style.display = "none";
                             }
                             break;
                         case "uncompleted":
-                            if (todo.classList.contains('completed')){
-                                todoStyle.display = 'none';
+                            if (todo.classList.contains("completed")){
+                                todo.style.display = 'none';
                             }
                             else{
-                                todoStyle.display = "flex";
+                                todo.style.display = "flex";
                             }
                             break;
                     }
@@ -118,6 +143,7 @@ export default class FormEvents
             })   
         })
     }
+
 
     setSaberColorAdd()
     {

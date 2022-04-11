@@ -4,10 +4,13 @@
     padding: 0;
 }
 
+textarea::-webkit-scrollbar{
+    width: 0;
+    } 
+
 html,
 body
 {
-    overflow: hidden;
     color: white;
     min-height: 100vh;
 }
@@ -80,15 +83,20 @@ header, form{
     align-items: center;
 }
 
-.todo-input , .todo-button{
+.todo-input , .todo-button , .todo-item , .delete-completed{
     padding: 5px;
     border: none;
     background: #1a1f25;
     outline: none;
     color: white;
+    resize: none;
+    -webkit-overflow-scrolling: touch;
+    -webkit-appearance: auto;
+   -moz-appearance: auto;
+        appearance: auto;
 }
 
-.todo-input {
+.todo-input , .todo-item{
     font-family: "myFirstFont";
     font-size: 20px;
     max-width: 310px;
@@ -97,6 +105,16 @@ header, form{
     border-radius: 10px;
     /* margin-left: 30px; */
 }
+
+.todo-input{
+    padding-left: 10px;
+}
+
+form{
+    overflow: auto
+}
+
+
 
 .todo-button{
     /* color: #d88771; */
@@ -134,7 +152,7 @@ header, form{
 }
 
 .todo{
-    margin: 8px;
+    margin: 10px;
     background: #1a1f25;
     color: black;
     font-size: 20px;
@@ -152,8 +170,8 @@ header, form{
     flex: 1;
 }
 
-.trash-btn , .complete-btn{
-    background: #0e1531;
+.trash-btn , .complete-btn , .redaction-btn {
+    background: #22272d;
     color: white;
     border: none;
     padding: 10px;
@@ -183,6 +201,10 @@ header, form{
     padding: 0px 8px;
 }
 
+.todo-item{
+    padding-bottom: 25px;
+}
+
 .fa-trash,
 .fa-check{
     pointer-events: none;
@@ -202,7 +224,7 @@ header, form{
     overflow: hidden;
 }
 
-select{
+select , .delete-completed{
     font-family: myFirstFont;
     background-color: #1a1f25;
     color: white;
@@ -216,6 +238,10 @@ select{
     appearance: none;
     outline: none;
     border: none;
+}
+
+.delete-completed{
+    margin-top: 5px;
 }
 
 
@@ -239,6 +265,10 @@ select{
 
     .todo{
         opacity: 0.8;
+    }
+
+    .todo-item {
+        padding-top: 10px;
     }
 
     .desc{
