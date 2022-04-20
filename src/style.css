@@ -103,7 +103,7 @@ header, form{
     width: 100%;
     border: 2px solid #22272d;
     border-radius: 10px;
-    /* margin-left: 30px; */
+
 }
 
 .todo-input{
@@ -117,7 +117,7 @@ form{
 
 
 .todo-button{
-    /* color: #d88771; */
+
     background: #0e1531;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -129,7 +129,7 @@ form{
 }
 
 .todo-button:hover{
-    /* background: #d88771; */
+
     color: orange;
     
 }
@@ -185,7 +185,6 @@ form{
 }
 
 .complete-btn{
-    /* background: #1e4b1e; */
     border-radius: 10px 0px 0px 10px;;
 }
 
@@ -240,8 +239,13 @@ select , .delete-completed{
     border: none;
 }
 
+select:hover , .delete-completed:hover{
+    color: red;
+}
+
 .delete-completed{
     margin-top: 5px;
+    text-align: left;
 }
 
 

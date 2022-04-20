@@ -15,11 +15,12 @@ export default class FormEvents
         this.todoButton = document.querySelector(".todo-button")
         this.filterOption = document.querySelector(".filter-todo")
         this.deleteButton = document.querySelector(".delete-completed")
-
+        
+        this.filterTodo()
         this.deleteTodo()
         this.setupAddtoDo()
-        this.filterTodo()
         this.deleteCompletedTodos()
+        
 
         this.legoForm = new LegoForm()
         this.resources = this.experience.resources
@@ -34,9 +35,9 @@ export default class FormEvents
         this.todoButton.addEventListener("click" , (event)=>
         {
             event.preventDefault()
-            if(this.todoInput.value != "")
+            if(this.todoInput.value.trim().length !== 0)
             {   
-                console.log(this.todoInput.value)
+                console.log(this.todoInput.value.trim().length)
                 const todoDiv = document.createElement("li")
                 todoDiv.classList.add("todo")
 
@@ -58,7 +59,6 @@ export default class FormEvents
                 todoDiv.appendChild(trashButton)
 
                 this.todoList.appendChild(todoDiv)
-
                 this.todoInput.value = ""                
             }     
         })
@@ -91,23 +91,40 @@ export default class FormEvents
         {
             // console.log(e.target)
             const item = e.target
+            const todo = item.parentElement
             if(item.classList[0] === "trash-btn")
-            {   
+                {   
                 console.log(item.parentElement)
-                const todo = item.parentElement
+                // const todo = item.parentElement
 
                 todo.classList.add("deleted")
                 todo.addEventListener("transitionend" ,() =>{
                 todo.remove()
                 })
                 this.setSaberColordelete()
-            }
+                }
         
-            if(item.classList[0] === "complete-btn"){
-                const todo = item.parentElement
+            if(item.classList[0] === "complete-btn")
+                {
                 todo.classList.toggle("completed")
                 this.setSaberColordeleteComplete()
-        }
+                }
+
+
+            const todos = this.todoList.childNodes;
+            todos.forEach( function(todo) { 
+                if(todo.nodeName === "LI")
+                {
+                    if(todo.classList.contains("completed"))
+                    {
+                        if(item.classList[0] === "complete-btn")
+                        {
+                            console.log(e.target)
+                        }
+                    }
+                }
+
+            })
         })
     }
 
