@@ -7,40 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>StarWarsTodoList</title>
 </head>
-<body>
+<body style='overflow-x:hidden;'>
     <div class="center">
-    <header>
-        <h1>Todo List</h1>
-    </header>
-    <div class="form_todolist">
-    <form>
-        <div class="button_form">
-        <input type="text" class="todo-input"></input>
-        <button class="todo-button" type="sumbit">
-        <i class="fas fa-plus-square"></i>            
-        </button>            
-        </div>
-
-        <div class="select">
-            <select name="todos" class="filter-todo">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
-        <div>
-        <button type="button" class="delete-completed">
-            delete completed
-        </button>            
-        </div>            
-        </div>
-
-
-    </form>
- <div class="todo-container">
-        <ul class="todo-list">
-        </ul>
-    </div>        
-</div>    
+        <div id="hero" class="hero">
+            <h1 class="header">StarWars ToDo</h1>
+            <div>
+              <div class="menus">
+                <div id="menu-main" class="todo-menu-main">
+                  <input id="addTodoTextInput" class="todo-input" type="text" placeholder="Type your todo here">
+                  <!-- <button class="todo-button" type="sumbit">
+                    <i class="fas fa-plus-square"></i>            
+                    </button> -->
+                    <div id="todoMenu2" class="todo-menu-2">
+                      <div id="todoMenu2Buttons" class="todo-menu-2-buttons">
+                        <button id="AllTodos" class="menu-2-button active">All</button>
+                        <button id="UncompletedTodos" class="menu-2-button" >Active</button>
+                        <button id="CompletedTodos" class="menu-2-button">Completed</button>
+                      </div>
+                      <button id="deleteCompletedBtn" class="delete-completed-btn">Clear completed</button>
+                    </div>
+                </div>
+              </div>
+              <ul id="todos" class="todo-list"></ul>
+            </div>
+          </div>
 </div>
 
 <div class="desc">StarWars ToDo</div>

@@ -69,7 +69,7 @@ export default class Renderer
         this.unrealBloomPass.threshold = 0.15
         this.unrealBloomPass.enabled = true
         
-        this.effectComposer.addPass(this.unrealBloomPass)
+        // this.effectComposer.addPass(this.unrealBloomPass)
 
     }
 
@@ -81,7 +81,7 @@ export default class Renderer
 
     update()
     {
-        // this.effectComposer.render()
-        this.instance.render(this.scene , this.camera.instance)
+        this.effectComposer.render()
+        // this.instance.render(this.scene , this.camera.instance)
     }
 }

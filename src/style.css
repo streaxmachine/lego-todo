@@ -4,6 +4,29 @@
     padding: 0;
 }
 
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-align: none;
+}
+
+ul,
+ol,
+li{
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
 textarea::-webkit-scrollbar{
     width: 0;
     } 
@@ -62,6 +85,13 @@ body
     transition: transform 1.5s ease-in-out;
 }
 
+.header {
+  margin-top: 60px;
+  font-size: 30px;
+  font-family: "myFirstFont";
+  text-align: center;
+}
+
 .center{
     margin-top: 50px;
     display: flex;
@@ -70,107 +100,144 @@ body
     padding-right: 20px;
     padding-left: 20px;
 }
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 
-header{
-    font-size: 20px;
-    font-family: "myFirstFont";
-}
+  .title{
+    text-align: center;
+  }
 
-header, form{
-    min-height: 80px;
+  .hero {
+    margin: 0 auto;
+  }
+
+  .menus {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 50px;
+  }
+
+  .todo-input{
+    font-family: "myFirstFont";
+    font-size: 20px;
+    max-width: 490px;
+    width: 100%;
+    border: 2px solid #22272d;
+    border-radius: 10px;
+  }
+
+  .todo-input {
+    padding-left: 10px;
 }
 
-.todo-input , .todo-button , .todo-item , .delete-completed{
-    padding: 5px;
+.todo-input{
+  padding: 5px;
+  border: none;
+  background: #1a1f25;
+  outline: none;
+  color: white;
+  resize: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto;
+}
+
+.todo-menu-main {
+  text-align: center;
+}
+
+.todo-menu-2-buttons{
+  flex-direction: column;
+}
+
+.menu-2-button , .delete-completed-btn{
+  margin-top: 5px;
+  text-align: left;
+  font-family: myFirstFont;
+  background-color: #1a1f25;
+  color: white;
+  width: 10rem;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid #22272d;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.active {
+  color: red;
+}
+
+
+.todo-text {
+  font-family: myFirstFont;
+  font-size: 20px;
+  list-style: none;
+  max-width: 400px;
+  width: 100%;
+  resize: none;
+  appearance: auto;
+  padding: 5px;
     border: none;
     background: #1a1f25;
     outline: none;
     color: white;
     resize: none;
     -webkit-overflow-scrolling: touch;
-    -webkit-appearance: auto;
-   -moz-appearance: auto;
-        appearance: auto;
+    /* -webkit-appearance: auto; */
+    -moz-appearance: auto;
+    appearance: auto;
 }
 
-.todo-input , .todo-item{
-    font-family: "myFirstFont";
-    font-size: 20px;
-    max-width: 310px;
-    width: 100%;
-    border: 2px solid #22272d;
-    border-radius: 10px;
-
+.todo-checked-text {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
-.todo-input{
-    padding-left: 10px;
+.menu-2-button:hover
+{
+  color: rgb(31, 85, 31);
 }
 
-form{
-    overflow: auto
+.todo {
+  opacity: 0.8;
+  display: flex;
+  margin: 10px;
+  background: #1a1f25;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+  border: 2px solid #22272d;
+  border-radius: 10px;
+  color: #912525;
+  font-family: myFirstFont;
 }
 
-
-
-.todo-button{
-
-    background: #0e1531;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid #22272d;
-    border-radius: 10px;
-    font-size: 25px;
-    color: white;
-    margin-right: 20px;
+.fa-trash, .fa-check {
+  pointer-events: none;
 }
 
-.todo-button:hover{
-
-    color: orange;
-    
-}
-
-.button_form{
-    display: flex;
-}
-
-.todo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 180px;
-}
-
-.todo-list{
-    list-style: none;
-    max-width: 338px;
-    width: 100%;
-}
-
-.todo{
-    margin: 10px;
-    background: #1a1f25;
-    color: black;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.5s ease;
-    border: 2px solid #22272d;
-    border-radius: 10px;
-    color: white;
-    font-family: myFirstFont;
-}
-
-.todo li{
-    flex: 1;
-}
-
-.trash-btn , .complete-btn , .redaction-btn {
+.trash-button , .complete-button {
     background: #22272d;
     color: white;
     border: none;
@@ -180,103 +247,15 @@ form{
     transition: all 0.3s ease;
 }
 
-.trash-btn{
-    border-radius: 0px 10px 10px 0px;
+.checkbox
+{
+  background-color: red;
 }
 
-.complete-btn{
-    border-radius: 10px 0px 0px 10px;;
-}
-
-.complete-btn:hover{
-    color: green;
-}
-
-.trash-btn:hover{
-    color: red;
-}
-
-.todo-item{
-    padding: 0px 8px;
-}
-
-.todo-item{
-    padding-bottom: 25px;
-}
-
-.fa-trash,
-.fa-check{
-    pointer-events: none;
-}
-
-.completed{
-    text-decoration: line-through;
-    opacity: 0.5;
-}
-
-.deleted{
-    opacity: 0;
-}
-
-.select{
-    position: relative;
-    overflow: hidden;
-}
-
-select , .delete-completed{
-    font-family: myFirstFont;
-    background-color: #1a1f25;
-    color: white;
-    width: 10rem;
-    cursor: pointer;
-    padding: 5px;
-    border: 2px solid #22272d;
-    border-radius: 10px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
-}
-
-select:hover , .delete-completed:hover{
-    color: red;
-}
-
-.delete-completed{
-    margin-top: 5px;
-    text-align: left;
-}
-
-
-@media (max-width: 530px){
-
-    form{
-        flex-direction: column;
+@media (max-width: 1200px) 
+{
+    .todo-text
+    {
+      max-width: 300px;
     }
-
-    .todo-container {
-        margin-right: 0px;
-    }
-
-    .todo-button {
-         margin-right: 0px;
-    }
-
-    .select{
-        margin-top: 10px;
-    }
-
-    .todo{
-        opacity: 0.8;
-    }
-
-    .todo-item {
-        padding-top: 10px;
-    }
-
-    .desc{
-        font-size: 20px;
-    }
-
 }
