@@ -181,6 +181,11 @@ html {
   border: none;
 }
 
+.delete-completed-btn:hover
+{
+  color: rgb(31, 85, 31);
+}
+
 .active {
   color: red;
 }
@@ -245,6 +250,10 @@ html {
     cursor: pointer;
     font-size: 15px;
     transition: all 0.3s ease;
+}
+
+.trash-button:hover {
+  color: red;
 }
 
 .checkbox
