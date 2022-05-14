@@ -9,6 +9,10 @@ export default class Interface
     constructor()
     {
 
+        this.addTodoTextInput = document.getElementById('addTodoTextInput');
+        this.todosUl = document.getElementById('todos');
+        this.todoMenu2 = document.getElementById('todoMenu2');
+
         //3js
         this.experience = new Experience()
         this.resources = this.experience.resources
@@ -29,21 +33,14 @@ export default class Interface
     };
 
     setUpEventListeners = () => {
-        let addTodoTextInput = document.getElementById('addTodoTextInput');
-        let todoMenu1 = document.getElementById('menu-main');
-        let todosUl = document.getElementById('todos');
-        let todoMenu2 = document.getElementById('todoMenu2');
-        let p = document.getElementsByClassName("todo-text")
-        
-       
-        addTodoTextInput.addEventListener('keyup', (event) => {
+        this.addTodoTextInput.addEventListener('keyup', (event) => {
           if (event.key === 'Enter') {
             this.helpers.addTodo();
             this.setSaberColorAdd()
           }
         });
         
-        todosUl.addEventListener('click', (event) => {
+        this.todosUl.addEventListener('click', (event) => {
          
           let target = event.target;
          
@@ -55,14 +52,14 @@ export default class Interface
           }
     
           else if (target.classList.contains('checkbox')) {
-           console.log("p" , p) 
+
             let indexOfTodoElement = this.todo.getTodoElementIndex(target.parentNode.parentNode);
             this.helpers.toggleCompleted(this.todo.todoList.todos[indexOfTodoElement]);
           }
         });
   
   
-        todosUl.addEventListener("focusout" , (event) => 
+        this.todosUl.addEventListener("focusout" , (event) => 
         {
           let target = event.target;
           console.log("clicked" , target)
@@ -75,7 +72,7 @@ export default class Interface
         })
        
   
-        todoMenu2.addEventListener('click', (event) => {
+        this.todoMenu2.addEventListener('click', (event) => {
           let target = event.target;
           if (target.id === 'deleteCompletedBtn') {
             console.log(target.id)

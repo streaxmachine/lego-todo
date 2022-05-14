@@ -17,8 +17,6 @@ export default class ToDoList
             filteredTodos: [],
         };
 
-
-
     }
 
     addTodo = (todoText) =>
