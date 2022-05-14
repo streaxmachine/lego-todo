@@ -1,12 +1,23 @@
+let instance = null
+
 export default class ToDoList
 {
+  
+
     constructor()
     {
+        if(instance)
+        {
+            return instance 
+        }
+
         this.todoList = 
         {
             todos: [],
             filteredTodos: [],
         };
+
+
 
     }
 

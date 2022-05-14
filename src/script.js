@@ -1,9 +1,9 @@
 import './style.css'
 import Experience from './Experience/Experience'
-import View from './Experience/Main'
+import Interface from './Experience/Interface'
 
 // const todo = new ToDoList()
 
 const experience = new Experience(document.querySelector("canvas.webgl"))
 
-const view = new View()
+const inferface = new Interface()
